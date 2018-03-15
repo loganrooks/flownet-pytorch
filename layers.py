@@ -7,7 +7,7 @@ import numpy
 class Swish(nn.Module):
     def __init__(self, beta=1.0, trainable=False):
         super(Swish, self).__init__()
-        self.beta = Variable(torch.FloatTensor([beta]), requires_grad=trainable)
+        self.beta = Variable(torch.cuda.FloatTensor([beta]), requires_grad=trainable)
 
     def forward(self, x):
         return x * f.sigmoid(self.beta * x)
